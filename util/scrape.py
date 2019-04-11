@@ -23,6 +23,9 @@ def write_features(html):
         for i in soup.findAll('td'):
             if c % 2 == 1:
                 feature = i.text.strip()
+                print(feature, c)
+                if c % 5 == 0:
+                    feature = feature.lstrip('x')
                 features.append(feature)
             c += 1
         f.write(','.join(features) + '\n')
